@@ -4,6 +4,8 @@ import { MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 import Logo from './components/Logo';
 import MenuList from './components/MenuList';
 import ToggleThemeButton from './components/ToggleThemeButton';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Activity from './components/Activity';
 
 // Destructure Layout components
 const { Header, Sider } = Layout;
@@ -25,6 +27,7 @@ function App() {
 
   return (
     <>
+    <Router>
       <Layout>
         {/* Sidebar (Sider) */}
         <Sider
@@ -40,7 +43,7 @@ function App() {
           <h2 className='title' style={collapsed ? {opacity:0} : {opacity:1}}>CIDC Demo Platform</h2>
           
           {/* MenuList component with theme prop */}
-          <MenuList darkTheme={darkTheme} />
+                <MenuList darkTheme={darkTheme} />
           
           {/* Button to toggle the theme */}
           <ToggleThemeButton darkTheme={darkTheme} toggleTheme={toggleTheme} />
@@ -48,7 +51,9 @@ function App() {
         
         <Layout>
           {/* Header with dynamic background color */}
-          <Header style={{ padding: 0, background: colorBgContainer }}>
+          {/* <Header style={{ padding: 0, background: colorBgContainer }}> */}
+          <Header style={{ padding: 0, background: 'url("/Screenshot 2024-08-21 210616.png")', backgroundPosition:"center"}}>
+
             {/* Button to collapse or expand the sidebar */}
             <Button
               type="text"
@@ -57,8 +62,22 @@ function App() {
               icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             />
           </Header>
+
+          <div className='routes'>
+            <Routes>
+              <Route path="/" element={<Activity/>}/>
+              {/* <Route path="/activity" element={} />
+              <Route path="/sse_task" element={} />
+              <Route path="/payload" element={} />
+              <Route path="/micro_services" element={} />
+              <Route path="/setting" element={} /> */}
+              {/* <Route path="/setting" element={<h1>Setting</h1>} /> */}
+            </Routes>
+          </div>
+
         </Layout>
       </Layout>
+      </Router>
     </>
   );
 }

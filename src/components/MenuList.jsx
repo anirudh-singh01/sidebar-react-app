@@ -1,5 +1,6 @@
 import { Menu } from 'antd';
 import { HomeOutlined, AppstoreOutlined, AreaChartOutlined, PayCircleOutlined, SettingOutlined, BarsOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 // MenuList component receives 'darkTheme' as a prop to determine the theme of the menu
 const MenuList = ({ darkTheme }) => {
@@ -10,22 +11,26 @@ const MenuList = ({ darkTheme }) => {
       
       {/* Menu Item: Home */}
       <Menu.Item key='home' icon={<HomeOutlined />}>
-        Home
+       <Link to="/">FireWall Task</Link> 
       </Menu.Item>
       
       {/* Menu Item: Activity */}
       <Menu.Item key='activity' icon={<AppstoreOutlined />}>
-        Activity
+      <Link to="/sse_task">SSE Task</Link>
       </Menu.Item>
       
       {/* SubMenu: Tasks */}
-      <Menu.SubMenu key='tasks' icon={<BarsOutlined />} title='Tasks'>
+      <Menu.SubMenu key='tasks' icon={<BarsOutlined />} title='Services'>
         
         {/* Task 1 */}
-        <Menu.Item key='task-1'>Task 1</Menu.Item>
+        <Menu.Item key='task-1'>
+          <a href="https://www.youtube.com/" target='_blank'>CISCO</a>
+          </Menu.Item>
         
         {/* Task 2 */}
-        <Menu.Item key='task-2'>Task 2</Menu.Item>
+        <Menu.Item key='task-2'>
+          <a href="https://www.youtube.com/" target='blank'>ServiceNow</a>
+          </Menu.Item>
         
         {/* Nested SubMenu: Subtasks */}
         <Menu.SubMenu key='subtasks' title='Subtasks'>
@@ -37,17 +42,17 @@ const MenuList = ({ darkTheme }) => {
       
       {/* Menu Item: Progress */}
       <Menu.Item key='progress' icon={<AreaChartOutlined />}>
-        Progress
+        <Link to="payload">Payload</Link>
       </Menu.Item>
       
       {/* Menu Item: Payment */}
       <Menu.Item key='payment' icon={<PayCircleOutlined />}>
-        Payment
+        <Link to="micro_services">Micro Services</Link>
       </Menu.Item>
       
       {/* Menu Item: Setting */}
       <Menu.Item key='setting' icon={<SettingOutlined />}>
-        Setting
+        <Link to="setting">Setting</Link>
       </Menu.Item>
       
     </Menu>
