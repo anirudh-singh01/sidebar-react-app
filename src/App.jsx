@@ -36,6 +36,8 @@ function App() {
         >
           {/* Logo component */}
           <Logo />
+
+          <h2 className='title' style={collapsed ? {opacity:0} : {opacity:1}}>CIDC Demo Platform</h2>
           
           {/* MenuList component with theme prop */}
           <MenuList darkTheme={darkTheme} />
